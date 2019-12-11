@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findDuplicates = function(nums) {
+    return nums.reduce((p, el) => {
+        if (nums[Math.abs(el)-1] < 0) {
+            p.push(Math.abs(el))
+        } else {
+            nums[Math.abs(el) -1] = -nums[Math.abs(el)-1]
+        }
+        return p;
+    }, []);
+};
